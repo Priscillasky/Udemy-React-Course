@@ -1,7 +1,7 @@
-import Expenses from "./Components/Expenses";
-import ExpenseItem from "./Components/ExpenseItem";
+import Expenses from "./Components/Expenses/Expenses";
+//import ExpenseItem from "./Components/ExpenseItem/ExpenseItem";
 import Item from "./Components/Item";
-function App() {
+const App = () =>{
   const expenses = [
     {
       id: 'e1',
@@ -30,8 +30,7 @@ function App() {
   return (
     <div>
       <h2>Let's get started!</h2>
-      <p>This is me </p>
-      <ExpenseItem 
+      {/*<ExpenseItem 
       title = {expenses[0].title} 
       amount = {expenses[0].amount} 
       date={expenses[0].date}>
@@ -54,7 +53,7 @@ function App() {
       amount = {expenses[3].amount} 
       date={expenses[3].date}
       
-      ></ExpenseItem>
+  ></ExpenseItem>*/}
       <Item></Item>
       <Expenses items = {expenses}/>
     </div>
