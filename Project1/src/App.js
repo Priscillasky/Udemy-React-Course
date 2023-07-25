@@ -1,9 +1,9 @@
+import React, { useState } from 'react'
 import Expenses from "./Components/Expenses/Expenses";
 //import ExpenseItem from "./Components/ExpenseItem/ExpenseItem";
-import Item from "./Components/Item";
 import NewExpense from "./NewExpense/NewExpense";
-const App = () =>{
-  const expenses = [
+
+const DUMMY_EXPENSES = [
     {
       id: 'e1',
       title: 'Toilet Paper',
@@ -28,17 +28,24 @@ const App = () =>{
       date: new Date(2021, 5, 12),
     },
   ];
-  const addExpenseHandler = expense => {
-    console.log('In App.js');
-    console.log(expense)
-  }
+const App = () =>{
 
+  const [expenses,setExpenses]= useState(DUMMY_EXPENSES);
+  
+  const addExpenseHandler = (expense) =>{
+    setExpenses(prevExpenses=>{
+      return  [expense,...prevExpenses]
+
+    });
+
+  }
+  
   const onSelectNewYear = year =>{
     console.log(year)
   }
   return (
     <div>
-      <NewExpense onAddExpense={addExpenseHandler} />
+      <NewExpense  onAddExpense= {addExpenseHandler}/>
       <Expenses items = {expenses}  onSelectYear = {onSelectNewYear} />
     </div>
   );
